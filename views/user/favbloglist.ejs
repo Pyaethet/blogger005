@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fav Blog List</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+      .card{
+        width: 400px;
+        height: 400px;
+        background-color:azure;
+        border-radius: 10px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <% include ../partial/header %>
+    <h1 style="text-align: center;">Fav Blog list</h1>
+    <% for(var i = 0; i < posts.length;i++){%>
+    <div class="card">
+      <img src="<%= posts[i].image %>" width="400px" height="270px" alt="">
+      <h4><%= posts[i].author.name %></h4>
+      <p><%= posts[i].created %></p>
+      <a href="/postdetail/<%= posts[i]._id %>">
+        <button style="width: 350px;
+        margin-left: 25px;
+        height: 30px;
+        border-radius: 5px;
+        background-color: aliceblue;
+        ">see more
+        </button>
+      </a>
+    </div>
+     <%}%>
+  </body>
+</html>

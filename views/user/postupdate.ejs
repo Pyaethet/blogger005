@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <% include ../partial/header %>
+    <h1>
+        Post Update
+    </h1>
+    <form action="/user/postupdate" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<%= post._id %>">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" value="<%= post.title %>"><br><br>
+        <label for="content">Content</label>
+        <textarea name="content" id="content" cols="30" rows="10"><%= post.content %></textarea><br><br>
+        <label for="image">Image</label>
+        <input type="file" name="image" id="image"><br><br>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

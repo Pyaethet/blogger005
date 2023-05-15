@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Index Page</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- <style>
+      .card{
+        width: 400px;
+        height: 400px;
+        background-color:azure;
+        border-radius: 10px;
+        display: inline-block;
+      }
+    </style> -->
+  </head>
+  <body>
+    <% include ./partial/header%>
+    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-grey-900 text-center">All Post</h1>
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap -m-4">
+          <% for(var i=0;i < posts.length;i++){%>
+          <div class="p-4 md:w-1/3">
+            <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+              <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="<%= posts[i].image %>" alt="blog">
+              <div class="p-6">
+                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><%= posts[i].author.name %></h2>
+                <h1 class="title-font text-lg font-medium text-gray-900 mb-3"><%= posts[i].title %></h1>
+                <p class="leading-relaxed mb-3"><%= posts[i].content %></p>
+                <div class="flex items-center flex-wrap ">
+                  <a href="/postdetail/<%= posts[i]._id %>" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%}%>
+        </div>
+      </div>
+    </section>
+    <!-- <% for(var i = 0; i < posts.length;i++){%>
+    <div class="card">
+      <img src="<%= posts[i].image %>" width="400px" height="270px" alt="">
+      <h4><%= posts[i].author.name %></h4>
+      <p><%= posts[i].created %></p>
+      <a href="/postdetail/<%= posts[i]._id %>">
+        <button style="width: 350px;
+        margin-left: 25px;
+        height: 30px;
+        border-radius: 5px;
+        background-color: aliceblue;
+        ">see more
+        </button>
+      </a>
+    </div>
+     <%}%> -->
+  </body>
+</html>

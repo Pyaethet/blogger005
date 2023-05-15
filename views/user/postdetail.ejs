@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post detail</title>
+    <script src="/javascripts/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body bgcolor="#f0abfc">
+    <% include ../partial/header %>
+    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 text-center">Post Detail</h1>
+    <section class="text-gray-600 body-font overflow-hidden">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="lg:w-4/5 mx-auto flex flex-wrap">
+            <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="<%= post.image %>">
+            <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+              <span class="text-sm title-font text-xl text-orange-500 tracking-widest"><%= post.author.name %></span>
+              <h1 class="text-gray-900 text-xl title-font font-medium mb-1"><%= post.title %></h1>
+              <p class="leading-relaxed"><%= post.content %></p><br>
+            <h4 class="text-lg text-rose-950">Created <%= post.created %></h4><br>
+            <h4 class="text-lg text-rose-950">Updated <%= post.updated %></h4><br>
+            
+<div class="inline-flex rounded-md shadow-sm" role="group">
+    <a href="/user/postupdate/<%= post._id %>" type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+      Update
+    </a>
+    <a href="/user/postdelete/<%= post._id %>" type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+      Delete
+    </a>
+  </div>
+  
+            <!-- <a href="/user/postupdate/<%= post._id %>"><button class="flex text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Update</button></a>
+            <a href="/user/postdelete/<%= post._id %>"><button class="flex text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Delete</button></a> -->
+        <hr class="mt-6">
+              <div class="flex">
+                <div style="width: 600px; display: inline-block;">
+                    <% for (var i = 0; i < comments.length; i++){%>
+            <div>
+                <div>
+                    <h4><%= comments[i].commenter.name %></h4>
+                    <p><%= comments[i].comment %></p>
+                </div>
+                <div style="text-align: end;">
+                    <% if (comments[i].reply){%>
+                <h4><%= post.author.name %></h4>
+            <p><%= comments[i].reply %></p>
+            <%}else{%>
+            <div style="margin-left: 100px;">
+            <textarea name="" id="replyContent" cols="45" rows="7"></textarea>
+        <button class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white" id="reply">Reply</button>
+    </div>
+        <%}%>
+        </div>
+        <hr>
+        </div>
+        <%}%>
+                </div>
+                </div> 
+                <!-- <% if(locals.user) {%>
+                    <div class="p-2 w-full">
+                        <div class="relative">
+                          <label for="comment" class="leading-7 text-sm text-gray-600">Comment</label>
+                          <textarea id="comment" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                        </div>
+                        <div class="p-2 w-full">
+                            <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" id="btnComment">Give Comment</button>
+                          </div>
+                        <%}else{%>                     
+                <span class="title-font font-medium text-xl text-gray-900">Please login for like and comment</span>
+                <a href="/login" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Login</a>
+                <%}%> -->
+                <!--<button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+                  </svg>
+                </button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- <section>
+        <div>
+        <% for (var i = 0; i < comments.length; i++){%>
+            <div style="margin: 15px;">
+                <div class="p-4 w-full">
+        <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col">
+          <div class="flex-grow">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><%= comments[i].commenter.name %></h2>
+            <p class="leading-relaxed text-base"><%= comments[i].comment %></p>
+          </div>
+        </div>
+                </div>
+            <% if(comments[i].reply){%>
+        <div style="text-align: end;">
+            <div class="p-4 w-full">
+                <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col">
+                  <div class="flex-grow">
+                    <h2 class="text-gray-900 text-lg title-font font-medium mb-3"><%= post.author.name %></h2>
+                    <p class="leading-relaxed text-base"><%= comments[i].reply %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%}%>
+            <hr>
+            </div>
+            <%}%>
+        </div>
+      </section> -->
+     <!-- <div>
+        <div style="width: 500px; display: inline-block;">
+    <h2><%= post.title %></h2>
+    <img src="<%= post.image %>" alt="" width="300" height="200">
+    <h4><%= post.author.name %></h4>
+    <p>Created: <%= post.created %></p>
+    <p>Updated: <%= post.updated %></p>
+    <p><%= post.content %></p>
+    <a href="/user/postupdate/<%= post._id %>"><button>Update</button></a>
+    <a href="/user/postdelete/<%= post._id %>"><button>Delete</button></a>
+        </div>
+            <div style="width: 600px; display: inline-block;">
+                <% for (var i = 0; i < comments.length; i++){%>
+        <div>
+            <div>
+                <h4><%= comments[i].commenter.name %></h4>
+                <p><%= comments[i].comment %></p>
+            </div>
+            <div style="text-align: end;">
+                <% if (comments[i].reply){%>
+            <h4><%= post.author.name %></h4>
+        <p><%= comments[i].reply %></p>
+        <%}else{%>
+        <div style="margin-left: 100px;">
+        <textarea name="" id="replyContent" cols="45" rows="7"></textarea>
+    <button style="width: 350px" id="reply">Reply</button></div>
+    <%}%>
+    </div>
+    <hr>
+    </div>
+    <%}%>
+            </div>
+            </div>  -->
+</body>
+    <script>
+        $("#reply").click(function(){
+            const data = { pid: "<%= post._id %>", reply: $("#replyContent").val()};
+            $.ajax("/user/givereply", {
+                method: "POST",
+                data: data,
+                success: function (result){
+                    if (result.status){
+                        location.reload();
+                    } else {
+                        alert("Something was wrong");
+                    }
+                },
+            });
+        });
+    </script>
+</html>
