@@ -115,8 +115,7 @@ router.post("/givecomment",checkUser,async function(req,res){
 
 router.post("/givereply",checkUser,async function(req,res){
   try{
-    const data = await Comment.findOneAndUpdate(
-      { post: req.body.pid},
+    const data = await Comment.findByIdAndUpdate(req.body.cid,
       { $set: { reply: req.body.reply}}
     );
     res.json({ status: true});
